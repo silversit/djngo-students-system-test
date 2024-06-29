@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h1>
+  Detail View For {{student.first_name}}
+</h1>
+{{student}}
+<h1>{{ student.name }}</h1>
+    <h2>Grades:</h2>
+    <ul>
+        {% for grade in Grades %}
+            <li>{{ grade.name }}: {{ grade.value }} because: {{grade.explanation}}</li>
+        {% endfor %}
+    </ul>
+     {% if user.is_authenticated %}
+
+    <button onclick="location.href='{% url 'students:update_student' student.pk %}'"  class="btn btn-primary">Update ?</button>
+    <button onclick="location.href='{% url 'students:student_delete' student.pk %}'"  class="btn btn-primary">DELETE ?</button>
+    {% endif %}
+</div>
+{% endblock %}

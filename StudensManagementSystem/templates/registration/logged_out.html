@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+
+
+{% block title %}Logged out{% endblock %}
+{% block content %}
+<h1>You have been logged out !</h1>
+Logged out
+
+You have been successfully logged out. You can log-in again.
+<button class="btn btn-primary"  onclick="location.href = '{% url 'login' %}'">Login ?</button>
+{% endblock %}
+
+
+
+</body>
+</html>

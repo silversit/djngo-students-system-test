@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Wellcome!!</h1>
+
+{% if user.is_authenticated %}
+    <h2> You are logged in {{user.get_username}} </h2>
+<p > <strong>
+    This site is not very presentable site.
+    it is just a sceleton for adding student and adding grades for the students
+    we are not even including the filtration by groups so teachers can only add grades for the classes they are teaching
+    the db is not completed with the relations for this.
+    everybody can see the add delete student and to give grades at this point
+    search bar is not connected.
+    no pictures or eye candy and no statistics and reminders by email about the classes
+    no internal communication between students and teachers or between students
+    no approvals for new teachers</strong>
+</p>
+    <h1>Number of registered students : {{num_students}}</h1>
+    <h1>Number of Classes : {{number_of_classes}}</h1>
+    <button class="btn btn-primary"  onclick="location.href = '{% url 'logout' %}'">Logout ?</button>
+{% else %}
+    <h2>You are not logged in !</h2>
+    <button class="btn btn-primary"  onclick="location.href = '{% url 'login' %}'">Login ?</button>
+{% endif %}
+
+{% endblock %}

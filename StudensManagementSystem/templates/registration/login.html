@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+    <h1>Your username or password is not correct try again !</h1>
+{% endif %}
+
+
+{% if next %}
+    {% if user.is_authenticated %}
+        <p>You do not have permission to visit this page !</p>
+    { % else %}
+        <p>Please login to see this page !</p>
+    {% endif %}
+
+
+{% endif %}
+<form class="form form-group  container" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="mb-3 form-group  form-control " >
+    {{form.username.label_tag}}
+    {{form.username}}
+    </div>
+    <div class="mb-3 form-control " >
+    {{form.password.label_tag}}
+    {{form.password}}
+    </div>
+    <button type="submit" class="btn btn-primary">Log in</button>
+    <button onclick="location.href='{% url 'students:signup' %}'"  class="btn btn-warning">Sign up ?</button>
+    <input type="hidden" name="next" value="{{next}}">
+
+
+
+
+</form>
+
+
+
+{% endblock %}

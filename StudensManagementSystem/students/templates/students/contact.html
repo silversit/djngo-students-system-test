@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<form method="POST">
+        {% csrf_token %}
+
+  <div class="mb-3 form-control " >
+<label for="{{form.subject_label_tag}}" class="form-label">Subject:</label>
+
+      {{ form.subject }}
+    <div id="emailHelp" class="form-text">please fill the subject for the query</div>
+  </div>
+      <div class="mb-3 form-control " >
+<label for="{{form.email_label_tag}}" class="form-label">Email:</label>
+
+      {{ form.email }}
+    <div id="emailHelp" class="form-text">please provide your email for contact:</div>
+  </div>
+
+  <div class="mb-3 form-control " >
+        <label for="{{form.msg_label_tag}}" class="form-label">Your Request:</label>
+
+
+   {{form.msg}}
+  </div>
+
+
+
+
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+{% endblock %}
