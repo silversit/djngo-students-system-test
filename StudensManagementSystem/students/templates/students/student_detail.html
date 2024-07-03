@@ -17,6 +17,9 @@
 
     <button onclick="location.href='{% url 'students:update_student' student.pk %}'"  class="btn btn-primary">Update ?</button>
     <button onclick="location.href='{% url 'students:student_delete' student.pk %}'"  class="btn btn-primary">DELETE ?</button>
+    <button onclick="location.href='{% url 'students:create_task' %}'"  class="btn btn-primary">Create Task ?</button>
+    <button onclick="location.href='{% url 'students:list_tasks' pk=student.pk %}'"  class="btn btn-primary">List Tasks ?</button>
+    <button onclick="location.href='{% url 'students:task_upload' pk=student.pk %}'"  class="btn btn-primary">Upload Tasks ?</button>
     {% endif %}
 </div>
 {% endblock %}

@@ -15,4 +15,17 @@ urlpatterns = [
     path('logout/',views.user_logout,name='logout'),
     path("grades_add/",views.AddGrageView.as_view(),name="grades_add"),
     path('contacts/', views.ContactListView.as_view(), name='contacts_list'),
+    path('search_students/', views.search_students, name='search_students'),
+    path("task_update/<int:pk>", views.TaskUpdateView.as_view(), name="update_task"),
+    path("task_delete/<int:pk>", views.TaskDeleteView.as_view(), name="task_delete"),
+    path("create_task/", views.TaskCreateView.as_view(), name="create_task"),
+    path("list_tasks/<int:pk>", views.TaskListView.as_view(), name="list_tasks"),
+    path("list_tasks/tasks_detail/<int:pk>", views.TasksDetailView.as_view(), name="tasks_detail"),
+    path('list_tasks/<int:pk>/upload/', views.TaskUploadView.as_view(), name='task_upload')
+
+
+
+
 ]
+
+

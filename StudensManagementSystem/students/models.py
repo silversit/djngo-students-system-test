@@ -45,3 +45,21 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tasks(models.Model):
+    student = models.ForeignKey("Student",on_delete=models.SET_NULL,null=True,blank=True)
+    tsk_due_date = models.DateTimeField(null=True,blank=True)
+    subject = models.TextField(max_length=100)
+    SUBJECT_STATUSES = (
+        ('s','Started'),
+        ('t',"On Track"),
+        ('b',"Behind"),
+        ('o','Open'),
+        ('c',"Closed")
+    )
+    status = models.CharField(max_length=1,choices=SUBJECT_STATUSES,blank=True,default='o')
+    start_date = models.DateTimeField(null=True,blank=True)
+    close_date = models.DateTimeField(null=True,blank=True)
+    def __str__(self):
+        return f'This task was created on {self.start_date} and is for :{self.subject} with status {self.get_status_display()}'

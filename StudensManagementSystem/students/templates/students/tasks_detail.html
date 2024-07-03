@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h1>
+  Detail View For {{tasks.subject}}
+</h1>
+{{tasks}}
+
+<ul>
+    <li>task due date: {{tasks.tsk_due_date}}</li>
+    <li> task start date : {{tasks.start_date}}</li>
+    <li>task closed on : {{tasks.close_date }}</li>
+</ul>
+
+    <button onclick="location.href='{% url 'students:update_task' tasks.pk %}'"  class="btn btn-primary">Update ?</button>
+    <button onclick="location.href='{% url 'students:task_delete' tasks.pk %}'"  class="btn btn-primary">DELETE ?</button>
+
+</div>
+{% endblock %}

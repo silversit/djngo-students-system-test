@@ -12,3 +12,9 @@ class ContactForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for myField in self.fields :
             self.fields[myField].widget.attrs['class'] = 'form-control'
+
+
+from django import forms
+
+class TaskUploadForm(forms.Form):
+    file = forms.FileField()
